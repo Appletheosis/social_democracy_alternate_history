@@ -71,8 +71,8 @@ The USPD is not interested in a "toleration" arrangement; they will only support
 
 @support_USPD_grand
 
-- @popular_front_coalition: Form a "Popular Front" coalition?
-- @left_coalition: Form a Left Coalition?
+- @election_1928.popular_front_coalition: Form a "Popular Front" coalition?
+- @election_1928.left_coalition: Form a Left Coalition?
 - @try_assuage: Never mind. We must deal with this some other way.
 
 @support_USPD_weimar
