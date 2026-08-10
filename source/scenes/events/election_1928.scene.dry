@@ -299,7 +299,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-SPD alone (SPD): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 30 : + USPD toleration ?] [+ spd_r +] %
+SPD alone (SPD): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 30 : + USPD toleration ?] ([+ spd_r +]%)
 
 Social-Liberal Coalition: (SPD + [+ ddp_name +]): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_liberal_coalition +]%)
 
