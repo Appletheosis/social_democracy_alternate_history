@@ -431,7 +431,8 @@ There are enough votes for the Nazis and the DNVP to form a coalition. [+ nsdap_
 @far_right_win
 on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
 
-[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsdap_leader +] must be chancellor [? if president == "Hindenburg" : , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
+[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsdap_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
+
 - @hitler_takes_power: What do we do now?
 
 
@@ -1243,7 +1244,12 @@ We are seen as responsible for the failure to form a government, and many of our
 
 
 @ministries
+title: Select Our Ministries
+on-arrival: {!
+// Ministry selection logic here if needed
+!}
 
+Now we must select our ministries for the government.
 We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to the USPD. ?] [? if in_left_front and reichswehr_minister_party == "USPD" : If the USPD controls the Reichswehr Ministry, the army will most likely revolt. ?]
 
 - #mins_1928
