@@ -18,7 +18,7 @@ Many non-communists are afraid of the possibility of a violent altercation, and 
 - @join: Join in the demonstrations ourselves.
 
 @ban
-on-arrival: blutmai = 1; USPD_relation -= 25; z_relation += 5; dvp_relation += 5; workers_spd -= 3; unemployed_spd -= 3; workers_kpd += 3; unemployed_kpd += 3; communist_coalition -= 3; strife += 1
+on-arrival: blutmai = 1; USPD_relation -= 25; z_relation += 5; dvp_relation += 5; workers_spd -= 3; unemployed_spd -= 3; workers_USPD += 3; unemployed_USPD += 3; communist_coalition -= 3; strife += 1
 face-image: img/blutmai.jpg
 
 We issued the order to ban the demonstrations, and sent police to enforce the ban. There was a confrontation between the police and Communists, and violence erupted. Reports say that the Berlin police killed dozens of demonstrators and innocent bystanders. The Communists are already calling this incident *Blutmai*, "Bloody May".
@@ -53,13 +53,13 @@ The demonstration proceeds peacefully under the watchful eyes of the police. Onl
 
 
 @allow
-on-arrival: workers_uspd += 5; unemployed_uspd += 5; kpd_relation += 10; rfb_strength += 50; z_relation -= 3; dvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1
+on-arrival: workers_uspd += 5; unemployed_uspd += 5; USPD_relation += 10; rfb_strength += 50; z_relation -= 3; dvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1
 
-The demonstration proceeds peacefully, with a minimal police presence. Onlookers admire the strength of the Communist workers, and perhaps some of our members have been peeled off. The KPD will never admit it, but they are developing a less hostile view towards us (even if they do not *like* us yet). Our centrist allies denounce the demonstration, but their cries are ineffectual.
+The demonstration proceeds peacefully, with a minimal police presence. Onlookers admire the strength of the Communist workers, and perhaps some of our members have been peeled off. The USPD will never admit it, but they are developing a less hostile view towards us (even if they do not *like* us yet). Our centrist allies denounce the demonstration, but their cries are ineffectual.
 
 
 @join
-choose-if: kpd_relation >= 15
+choose-if: USPD_relation >= 15
 unavailable-subtitle: The Communists do not trust us enough.
 on-arrival: uspd_relation += 15; workers_uspd += 5; unemployed_uspd += 5; workers_uspd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; z_relation -= 10; dvp_relation -= 10; coalition_dissent += 2; communist_coalition += 2; rfb_strength += 100; rfb_militancy += 0.1; sa_strength += 50; sh_strength += 50
 achievement: die_rote_fahne
