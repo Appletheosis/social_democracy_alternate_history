@@ -999,6 +999,19 @@ If we do not at least "tolerate" the government, there will be new elections in 
 - @brauns_dilemma
 - @new_elections: New elections, it is!
 
+@ministries
+title: Ministries
+on-arrival: {!
+// No additional logic needed - this is just a redirect point
+!}
+
+Who should lead the government ministries?
+
+- @muller: Hermann Müller
+- @braun: Otto Braun
+- @breitscheid_coalition_chancellor: Rudolf Breitscheid
+- @wels: Otto Wels
+
 
 @new_elections
 on-arrival: {!
