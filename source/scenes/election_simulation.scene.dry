@@ -273,10 +273,10 @@ Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
-Q.left_coalition = Q.spd_r + Q.uspd_r + Q.sapd_r;
+Q.left_coalition = Q.spd_r + Q.USPD_r + Q.sapd_r;
 // this is an absurd concept lol
-Q.popular_front_coalition = Q.spd_r + Q.uspd_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
-Q.anti_democratic_coalition = Q.uspd_r + Q.nsdap_r + Q.dnvp_r;
+Q.popular_front_coalition = Q.spd_r + Q.USPD_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
+Q.anti_democratic_coalition = Q.USPD_r + Q.nsdap_r + Q.dnvp_r;
 // aka everyone except nazi, USPD, dnvp
 Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 // Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
@@ -314,13 +314,13 @@ Other: [+ other_r +]
 
 **Potential coalitions:**
 
-SPD alone: [+ spd_r +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 30 : + USPD toleration ?]
+SPD alone: [? if USPD_relation >= 30 : + USPD toleration ?] ([+ spd_r +])
 
-Social-Liberal Coalition: [+ social_liberal_coalition +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?]
+Social-Liberal Coalition: [? if USPD_relation >= 55 : + USPD toleration ?] ([+ social_liberal_coalition +])
 
-Social-Christian Coalition: [+ social_christian_coalition +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?]
+Social-Christian Coalition: [? if USPD_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition +])
 
-Weimar Coalition (SPD + Z + DDP): [+ weimar_coalition +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?]
+Weimar Coalition (SPD + Z + DDP): [? if USPD_relation >= 55 : + USPD toleration ?] ([+ weimar_coalition +])
 
 Grand Coalition (SPD + Z + BVP + DDP + DVP): [+ grand_coalition +]
 
