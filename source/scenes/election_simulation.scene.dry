@@ -265,18 +265,23 @@ if (Q.USPD_r >= Q.spd_r && Q.USPD_r >= Q.nsdap_r) {
 }
 
 // coalitions
-Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3;
+Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3; 
+Q.social_christian_coalition = Q.spd_r + Q.z_r -3;
+Q.social_liberal_coalition = Q.spd_r + Q.ddp_r;
 Q.grand_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r;
 Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
-Q.left_coalition = Q.spd_r + Q.USPD_r;
+Q.left_coalition = Q.spd_r + Q.uspd_r + Q.sapd_r;
 // this is an absurd concept lol
-Q.united_front_coalition = Q.spd_r + Q.USPD_r + Q.z_r + Q.ddp_r - 3;
-Q.anti_democratic_coalition = Q.USPD_r + Q.nsdap_r;
+Q.popular_front_coalition = Q.spd_r + Q.uspd_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
+Q.anti_democratic_coalition = Q.uspd_r + Q.nsdap_r + Q.dnvp_r;
 // aka everyone except nazi, USPD, dnvp
 Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
+// Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
+Q.hitler_right_coalition = Q.z_r + Q.dnvp_r + Q.nsdap_r;
+Q.progressive_coalition = Q.spd_r + Q.USPD_r + Q.ddp_r + Q.sapd_r;
 !}
 
 The electoral system is essentially proportional, with the proportion of Reichstag seats roughly equal to the proportion of votes.
@@ -309,7 +314,13 @@ Other: [+ other_r +]
 
 **Potential coalitions:**
 
-Weimar Coalition (SPD + Z + DDP): [+ weimar_coalition +]
+SPD alone: [+ spd_r +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 30 : + USPD toleration ?]
+
+Social-Liberal Coalition: [+ social_liberal_coalition +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?]
+
+Social-Christian Coalition: [+ social_christian_coalition +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?]
+
+Weimar Coalition (SPD + Z + DDP): [+ weimar_coalition +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?]
 
 Grand Coalition (SPD + Z + BVP + DDP + DVP): [+ grand_coalition +]
 
