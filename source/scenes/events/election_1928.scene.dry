@@ -299,13 +299,13 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-SPD alone (SPD): [+ spd_r +]%
+SPD alone (SPD): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 30 : + USPD toleration ?] [+ spd_r +] %
 
 Social-Liberal Coalition: (SPD + [+ ddp_name +]): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_liberal_coalition +]%)
 
-Social-Christian Coalition: (SPD + Z)): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition +]%)
+Social-Christian Coalition: (SPD + Z): [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition + -3]%)
 
-Weimar Coalition (SPD + Z + [+ ddp_name +]): [+ weimar_coalition +]%
+Weimar Coalition (SPD + Z + [+ ddp_name +]): [+ weimar_coalition + -3]%
 
 Grand Coalition (SPD + Z + BVP + [+ ddp_name +] + DVP): [+ grand_coalition +]%
 
