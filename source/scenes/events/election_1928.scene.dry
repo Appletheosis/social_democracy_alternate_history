@@ -405,8 +405,6 @@ In response to the USPD's entrance into the government, the right-wing takes a "
 
 The USPD has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" within the Popular Front government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that the Popular Front would inevitably fail, and that our failure would benefit them.
 
-- @ministries: First, we must select our ministries.
-
 
 @popular_front_civil_war
 on-arrival: USPD_relation = 80; reichswehr_loyalty += 0.25;
@@ -998,20 +996,6 @@ If we do not at least "tolerate" the government, there will be new elections in 
 - @toleration_bruning: We will tolerate Brüning after all.
 - @brauns_dilemma
 - @new_elections: New elections, it is!
-
-@ministries
-title: Ministries
-on-arrival: {!
-// No additional logic needed - this is just a redirect point
-!}
-
-Who should lead the government ministries?
-
-- @muller: Hermann Müller
-- @braun: Otto Braun
-- @breitscheid_coalition_chancellor: Rudolf Breitscheid
-- @wels: Otto Wels
-
 
 @new_elections
 on-arrival: {!
