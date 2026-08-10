@@ -41,20 +41,20 @@ if (Q.spd_in_government && Q.chancellor_party == "SPD") {
     Q.total_power += Q.loyal_reichswehr_power/4;
 }
 Q.rfb_power = Q.rfb_strength*Q.rfb_militancy;
-if (Q.kpd_relation >= 60) {
+if (Q.USPD_relation >= 60) {
     Q.total_power += Q.rfb_power;
-} else if (Q.kpd_relation >= 45) {
+} else if (Q.USPD_relation >= 45) {
     Q.total_power += Q.rfb_power*0.5;
 }
 // general strike strength
 // maximum (given 25 labor strength) is 400
 // use normalized workers_spd instead of labor_strength?
 Q.normalized_workers_spd = 100*Q.workers_spd/(Q.workers_spd + Q.workers_uspd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
-Q.normalized_workers_kpd = 100*Q.workers_kpd/(Q.workers_spd + Q.workers_uspd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
+Q.normalized_workers_USPD = 100*Q.workers_USPD/(Q.workers_spd + Q.workers_uspd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
 Q.normalized_workers_total = Q.normalized_workers_spd;
-if (Q.kpd_relation >= 15) {
+if (Q.USPD_relation >= 15) {
     Q.normalized_workers_total += Q.normalized_workers_uspd;
-} else if (Q.kpd_relation >= 0) {
+} else if (Q.USPD_relation >= 0) {
     Q.normalized_workers_total += Q.normalized_workers_uspd*0.5;
 }
 Q.total_power += (2 - Q.labor_dissent/100)*Q.normalized_workers_total*(2 - Q.unemployed/100)*2.5;
@@ -102,7 +102,7 @@ What else do we have?
 @war_menu
 
 - @rw_help: Appeal to the Reichswehr to stand down.
-- @kpd_help: Call for support from the Communists.
+- @USPD_help: Call for support from the Communists.
 - @general_strike: Call a general strike!
 - @loyal_police: Call up the loyal portions of the police.
 - @war_outcome: Now, the battle...
@@ -114,13 +114,13 @@ on-arrival: war_choices += 1
 
 We have urged the Reichswehr to stand down, to avoid killing their countrymen. [? if reichswehr_loyalty < 0.2 : Unfortunately, few heed our calls; the Reichswhere detest us. ?][? if reichswehr_loyalty >= 0.2 and reichswehr_loyalty < 0.4 : Some officers and troops heed our calls to not fight against us. Some even join us. ?][? if reichswehr_loyalty >= 0.4 and reichswehr_loyalty < 0.6 : The Reichswehr is split. Many avoid taking a side, or join our side. ?][? if reichswehr_loyalty >= 0.6 : Surprisingly, the majority of the Reichswehr is on our side! Our preparations have worked. ?]
 
-@kpd_help
+@USPD_help
 max-visits: 1
 view-if: chancellor_party != "USPD" and president != "Liebknecht" 
 go-to: war_menu
 on-arrival: war_choices += 1
 
-There are [+ rfb_strength +] thousand fighters with the Communist RFB, in addition to the workers who support the KPD.
+There are [+ rfb_strength +] thousand fighters with the Communist RFB, in addition to the workers who support the USPD.
 
 [? if USPD_relation >= 15 : The USPD is entirely on our side ?][? if uspd_relation < 15 and uspd_relation >= 0 : Most of the USPD is on our side, due to their good relations with us. ?][? if uspd_relation < 0 : The USPD does not support us. ?]
 
@@ -199,13 +199,13 @@ go-to: long_war_intervention
 We send a call for help to the West, but their governments are divided on whether or not to support us. We have to survive on our own until they make a decision.
 
 @soviet_aid
-choose-if: (soviet_relation >= 1 and kpd_relation >= 50) or (kpd_relation >= 75)
+choose-if: (soviet_relation >= 1 and USPD_relation >= 50) or (USPD_relation >= 75)
 on-arrival: soviet_aid += 1
 unavailable-subtitle: Our relations are not strong enough.
 max-visits: 1
 go-to: long_war_intervention
 
-We send a call for help to the Soviet Union. The KPD receives the bulk of the aid, while the Reichsbanner and our loyal military units are left floundering. If we win, this does not bode well for our future.
+We send a call for help to the Soviet Union. The USPD receives the bulk of the aid, while the Reichsbanner and our loyal military units are left floundering. If we win, this does not bode well for our future.
 
 @east_aid
 choose-if: east_relation >= 2
@@ -223,4 +223,3 @@ Poland and Czechoslovakia are largely too absorbed in their own problems to be o
 The battle lines hold, and the SA, Stahlhelm, and pro-coup Reichswehr forces are defeated. Today, the forces of the republic prevail over the fascists and the reactionaries. There is a new revolution in Germany. Let us hope it produces a longer-lasting peace than the previous one.
 
 - @game_over: Game over.
-
