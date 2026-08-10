@@ -62,7 +62,7 @@ We could try to boot the USPD from our governing coalition, and form a new gover
 
 @spd_majority
 title: SPD majority alone
-subtitle: SPD: [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ spd_r +]%)
+subtitle: SPD: [? if sapd_formed and USPD_relation >= 15 : + SAPD toleration ?][? if USPD_relation >= 55 : + USPD toleration ?] ([+ spd_r +]%)
 view-if: spd_r >= 50
 on-arrival: chancellor = "Empty"; chancellor_party = "SPD"; spd_in_government = 1; in_spd_majority = 1; pro_republic += 5; foreign_minister_party = "SPD"; foreign_minister = "Breitscheid"; interior_minister_party = "SPD"; interior_minister = "Severing"; justice_minister_party = "SPD"; justice_minister = "Radbruch"; labor_minister_party = "SPD"; labor_minister = "Wissell"; reichswehr_minister_party = "SPD"; reichswehr_minister = "Leber"; economic_minister_party = "SPD"; economic_minister = "Schmidt"; finance_minister_party = "SPD"; finance_minister = "Hilferding"; agriculture_minister_party = "SPD"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
 achievement: majority_party
@@ -104,7 +104,7 @@ Otto Wels has become chancellor of the SPD majority.
 
 @social_christian_coalition
 title: We can form a Social-Christian Coalition.
-subtitle: SPD + Z [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition -3]%)
+subtitle: SPD + Z [? if sapd_formed and USPD_relation >= 15 : + SAPD toleration ?][? if USPD_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition -3]%)
 on-arrival: leverage += 5;
 
 We have enough votes to form a "Social-Christian" government consisting of the SPD and Center (Z) parties!
@@ -119,7 +119,7 @@ Who should be the chancellor?
 
 @social_liberal_coalition
 title: We can form a Social-Liberal Coalition.
-subtitle: SPD + [+ ddp_name +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_liberal_coalition +]%)
+subtitle: SPD + [+ ddp_name +] [? if sapd_formed and USPD_relation >= 15 : + SAPD toleration ?][? if USPD_relation >= 55 : + USPD toleration ?] ([+ social_liberal_coalition +]%)
 view-if: social_liberal_coalition >= 50
 on-arrival: leverage += 5;
 
@@ -134,7 +134,7 @@ Who should be the chancellor?
 
 @weimar_coalition
 title: We can form a Weimar Coalition.
-subtitle: SPD + Z + [+ ddp_name +] [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ weimar_coalition +]%)
+subtitle: SPD + Z + [+ ddp_name +] [? if sapd_formed and USPD_relation >= 15 : + SAPD toleration ?][? if USPD_relation >= 55 : + USPD toleration ?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; spd_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_coalition
@@ -175,7 +175,7 @@ title: Is a United Left coalition possible?
 subtitle: SPD + USPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
 unavailable-subtitle: SPD + USPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if USPD_relation < 15 : We do not have adequate relations with the USPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
 view-if: left_coalition >= 50
-choose-if: (uspd_relation >= 15 or (USPD_party_leader == "Conciliators" and USPD_relation >= 40)) and communist_coalition >= 3
+choose-if: (USPD_relation >= 15 or (USPD_party_leader == "Conciliators" and USPD_relation >= 40)) and communist_coalition >= 3
 
 There are enough votes for a SPD + USPD coalition government.
 
