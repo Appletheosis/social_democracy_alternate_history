@@ -299,6 +299,8 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
+SPD alone (SPD): [+ spd_r +]%
+
 Weimar Coalition (SPD + Z + [+ ddp_name +]): [+ weimar_coalition +]%
 
 Grand Coalition (SPD + Z + BVP + [+ ddp_name +] + DVP): [+ grand_coalition +]%
@@ -316,6 +318,8 @@ There are some potential coalition arrangements.
 @coalition_menu
 
 - @spd_majority
+- @social_christian_coalition
+- @social_liberal_coalition
 - @weimar_coalition
 - @grand_coalition
 - @new_grand_coalition
