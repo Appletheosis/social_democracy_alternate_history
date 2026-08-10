@@ -124,7 +124,7 @@ Otto Wels has become chancellor of the SPD majority.
 
 @social_christian_coalition
 title: We can form a Social-Christian Coalition.
-subtitle: SPD + Z [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition + -3]%)
+subtitle: SPD + Z [? if sapd_formed and uspd_relation >= 15 : + SAPD toleration ?] [? if uspd_relation >= 55 : + USPD toleration ?] ([+ social_christian_coalition -3]%)
 view-if: social_christian_coalition >= 50
 on-arrival: leverage += 5;
 
